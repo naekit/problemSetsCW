@@ -1,15 +1,21 @@
 // 7
 
 function howManyGifts(maxBudget, gifts){
-    // your code goes here
-    let rem = maxBudget
-    let giftNum = 0
-    for(let i = 0; i < gifts.length; i++){
-      if(rem > 0){
-        rem = rem - gifts[i]
-        giftNum++
-      } else {
-        return giftNum
+  let rem = maxBudget
+  let giftNum = []
+  let sorted = gifts.sort((a,b) => a - b)
+  for(let i = 0; i <= sorted.length; i++){
+    if(rem <= 0){
+      return giftNum.length === 0 ? giftNum.length: 
+        rem === NaN ? giftNum.length - 2:
+          rem === 0 ? giftNum.length:
+            giftNum.length - 1
+    } else if(rem > 0){
+      if(Number.isFinite(sorted[i])){
+        rem = rem - sorted[i]
+        giftNum.push(sorted[i])
       }
     }
+  }
+  return giftNum.length
 }
