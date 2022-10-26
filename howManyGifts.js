@@ -19,3 +19,13 @@ function howManyGifts(maxBudget, gifts){
   }
   return giftNum.length
 }
+
+// alternative
+// function howManyGifts(m, g){
+//   var i = 0;
+//   g = g.sort(function(a, b){return a - b});
+//   for(; m - g[i] >= 0; i++){
+//     m = m - g[i];
+//   }
+//   return i;
+// }
